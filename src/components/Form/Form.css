@@ -1,0 +1,36 @@
+input,textarea{
+    background-color: bisque;
+    width: 300px;
+    padding: 5px;
+    border: 1px solid bisque;
+    border-radius: 5px;
+}
+select{
+    background-color: bisque;
+    width: 310px;
+    padding: 5px;
+    border: 1px solid bisque;
+    border-radius: 5px;
+}
+button{
+    background-color: tan;
+    border: none;
+    width: 310px;
+    padding: 10px;
+    border-radius: 5px;
+}
+button:hover{
+    cursor: pointer;
+    color: white;
+}
+.check{
+    width: 5%;
+}
+.main{
+    width: 23%;
+    margin: 11% auto;
+}
+body{
+    background-color: grey;
+    color: white;
+}
