@@ -8,77 +8,81 @@ class Form extends Component {
         fathername: "",
         address: "",
         number: "",
-        disabled:true
+        disabled: true
     }
 
     handleName = (e) => {
         this.setState({ [e.target.name]: e.target.value })
-            if(e.target.value.length<3){
-                this.setState({disabled:true})
-            }else{
-                this.setState({disabled:false})
-            }
+        if (e.target.value.length < 3) {
+            this.setState({ disabled: true });
+        } else {
+            this.setState({ disabled: false });
+        }
     }
 
     handleSurname = (e) => {
         this.setState({ [e.target.name]: e.target.value })
-            if(e.target.value.length<6){
-                this.setState({disabled:true})
-            }else{
-                this.setState({disabled:false})
-            }
+        if (e.target.value.length < 6) {
+            this.setState({ disabled: true });
+        } else {
+            this.setState({ disabled: false });
+        }
     }
 
     handleAddress = (e) => {
         this.setState({ [e.target.name]: e.target.value })
-            if(e.target.value.length<10){
-                this.setState({disabled:true})
-            }else{
-                this.setState({disabled:false})
-            }
+        if (e.target.value.length < 10) {
+            this.setState({ disabled: true });
+        } else {
+            this.setState({ disabled: false });
+        }
     }
 
     submitChanges = (e) => {
-        e.preventDefault()
+        e.preventDefault();
         console.log(this.state);
-        alert("Form müvəffəqiyyətlə göndərildi");
+        if (this.state.name === "" || this.state.surname === "" || this.state.fathername === "" || this.state.address === "" || this.state.number === "") {
+            alert("Bütün bölmələri doldurun");
+        } else {
+            alert("Form müvəffəqiyyətlə göndərildi");
+        }
     }
 
     render() {
         return (
             <div className="main">
                 <form onSubmit={this.submitChanges}>
-                <label>
-                    Ad
+                    <label>
+                        Ad
+                        <br></br>
+                        <input type="text" onChange={this.handleName} name="name" placeholder="Adınızı daxil edin"></input><br></br>
+                    </label>
                     <br></br>
-                    <input type="text" onChange={this.handleName} name="name" placeholder="Adınızı daxil edin"></input><br></br>
-                </label>
-                <br></br>
-                <label>
-                    Soyad
+                    <label>
+                        Soyad
+                        <br></br>
+                        <input type="text" onChange={this.handleSurname} name="surname" placeholder="Soyadınızı daxil edin"></input><br></br>
+                    </label>
                     <br></br>
-                    <input type="text" onChange={this.handleSurname} name="surname" placeholder="Soyadınızı daxil edin"></input><br></br>
-                </label>
-                <br></br>
-                <label>
-                    Ata adı
+                    <label>
+                        Ata adı
+                        <br></br>
+                        <input type="text" onChange={this.handleName} name="fathername" placeholder="Ata adınızı daxil edin"></input><br></br>
+                    </label>
                     <br></br>
-                    <input type="text" onChange={this.handleName} name="fathername" placeholder="Ata adınızı daxil edin"></input><br></br>
-                </label>
-                <br></br>
-                <label>
-                    Ünvan
+                    <label>
+                        Ünvan
+                        <br></br>
+                        <input type="text" onChange={this.handleAddress} name="address" placeholder="Ünvanınızı daxil edin"></input><br></br>
+                    </label>
                     <br></br>
-                    <input type="text" onChange={this.handleAddress} name="address" placeholder="Ünvanınızı daxil edin"></input><br></br>
-                </label>
-                <br></br>
-                <label>
-                    Telefon nömrəsi
+                    <label>
+                        Telefon nömrəsi
+                        <br></br>
+                        <input type="number" onChange={this.handleAddress} name="number" placeholder="Telefon nömrəsini daxil edin"></input><br></br>
+                    </label>
                     <br></br>
-                    <input type="number" onChange={this.handleAddress} name="number" placeholder="Telefon nömrəsini daxil edin"></input><br></br>
-                </label>
-                <br></br>
-                <button disabled={this.state.disabled}>Göndər</button>
+                    <button disabled={this.state.disabled}>Göndər</button>
                 </form>
             </div>
         )
